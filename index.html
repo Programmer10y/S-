@@ -247,13 +247,17 @@ function startProject(type){
   document.querySelector('[name="service"]').value = type === 'store' ? 'store' : 'website';
 }
 
-(function(){emailjs.init("eYGeoW7ruxJ_MG0dq");})(); // مفتاحك الصحيح
+
+(function(){
+  emailjs.init("eYGeoW7ruxJ_MG0dq"); // المفتاح العام
+})();
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
   event.preventDefault();
   const msgBox = document.getElementById('form-msg');
   msgBox.innerHTML = '';
-  emailjs.sendForm('service_s0zzrzt', 'template_k7p6n0b', '#contact-form')
+  
+  emailjs.sendForm('service_s0zzrzt', 'template_ftii7sz', '#contact-form')
   .then(function() {
     msgBox.innerHTML = '<div class="notification success">✅ تم إرسال طلبك بنجاح!</div>';
     document.getElementById('contact-form').reset();
